@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>body{background-image:url(stelle.gif);
+        background-attachment: fixed;
+            background-size: cover;
+        }
+        label{color:white;}
+        h1{color:white;}
+        div{color:white;}
+        a{color:white;}</style>
+</head>
+<script>
+    function stampa(){
+        var risp=localStorage.getItem("risposta");
+        document.getElementById("risp").innerHTML=localStorage.getItem("risposta");
+        if(risp=="B"){
+            document.getElementById("dest").innerHTML="CORRETTA";
+            punt=localStorage.getItem("punteggio");
+            punt=punt*1+200;
+            localStorage.setItem("punteggio",punt);
+            corr=localStorage.getItem("corrette");
+            corr=corr*1+1;
+            localStorage.setItem("corrette",corr);
+            
+        }
+        else{
+            document.getElementById("dest").innerHTML="SBAGLIATA";
+            document.getElementById("cons").innerHTML="La risposta giusta era la B"
+        }
+        document.getElementById("punt").innerHTML=localStorage.getItem("punteggio");
+        document.getElementById("corr").innerHTML=localStorage.getItem("corrette");
+    }
+    function invio(){
+            var x;
+            if(document.getElementById("A").checked==true){
+                x="A";
+            }
+            if(document.getElementById("B").checked==true){
+                x="B";
+            }
+            if(document.getElementById("C").checked==true){
+                x="C";
+            }
+            if(document.getElementById("D").checked==true){
+                x="D";
+            }
+            
+  
+            localStorage.setItem("risposta", x);
+             var el=localStorage.getItem("elenco");
+            el=el+" "+x;
+            localStorage.setItem("elenco",el);
+
+            
+        
+        document.location.href="Untitled-5.html";}
+    setTimeout("stampa()", 1);
+</script>
+<body>
+    
+    <div id="risp"></div>
+    <div id="dest"></div>
+    <div id="cons"></div>
+    <a>Punteggio: </a><div id="punt"></div>
+    <a>Risposte corrette fino ad adesso: </a><div id="corr"></div>
+    <h1>Qual è la capitale dell'Italia???</h1>
+    <input type="radio" id="A" value="A" name="domanda"><label for="A">Milano</label><br>
+    <input type="radio" id="B"value="B" name="domanda"><label for="B">Taranto</label><br>
+    <input type="radio" id="C"value="C" name="domanda"><label for="C">Roma</label><br>
+    <input type="radio" id="D"value="D" name="domanda"><label for="D">Rimini</label><br>
+    <input type="submit" onclick="invio()">
+</body>
+</html>

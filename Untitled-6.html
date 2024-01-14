@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>body{background-image:url(stelle.gif);
+        background-attachment: fixed;
+            background-size: cover;
+        }
+        label{color:white;}
+        h1{color:white;}
+        div{color:white;}
+        a{color:white;}</style>
+</head>
+<script>
+    function stampa(){
+        var risp=localStorage.getItem("risposta");
+        document.getElementById("risp").innerHTML=localStorage.getItem("risposta");
+        if(risp=="A"){
+            document.getElementById("dest").innerHTML="CORRETTA";
+            punt=localStorage.getItem("punteggio");
+            punt=punt*1+200;
+            localStorage.setItem("punteggio",punt);
+            corr=localStorage.getItem("corrette");
+            corr=corr*1+1;
+            localStorage.setItem("corrette",corr);
+            
+        }
+        else{
+            document.getElementById("dest").innerHTML="SBAGLIATA";
+            document.getElementById("cons").innerHTML="La risposta giusta era la A"
+        }
+        document.getElementById("punt").innerHTML=localStorage.getItem("punteggio");
+        document.getElementById("corr").innerHTML=localStorage.getItem("corrette");
+        document.getElementById("desti").innerHTML=localStorage.getItem("elenco");
+        document.getElementById("utente").innerHTML=localStorage.getItem("nome");
+    }
+    setTimeout("stampa()", 1);
+</script>
+<body>
+    
+    <div id="risp"></div>
+    <div id="dest"></div>
+    <div id="cons"></div>
+    <h1>RESOCONTO PARTITA</h1>
+    <a>Utente: </a><div id="utente"></div>
+    <a>Punteggio totale: </a><div id="punt"></div>
+    <a>Risposte corrette: </a><div id="corr"></div>
+    <a>Riposte inserite dall'utente:</a><div id="desti"></div>
+    <a>Risposte corrette: C D B C A</a>
+</body>
+</html>

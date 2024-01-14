@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <style>
+        body{background-image:url(stelle.gif);
+        background-attachment: fixed;
+            background-size: cover;
+        }
+        label{color:white;}
+        h1{color:white;}
+        div{color:white;}
+        a{color:white;}
+        
+    </style>
+    <script>
+        function invio(){
+            var x;
+            var y=0;
+            var z=0;
+            if(document.getElementById("A").checked==true){
+                x="A";
+            }
+            if(document.getElementById("B").checked==true){
+                x="B";
+            }
+            if(document.getElementById("C").checked==true){
+                x="C";
+            }
+            if(document.getElementById("D").checked==true){
+                x="D";
+            }
+            
+  
+            localStorage.setItem("risposta", x);
+            localStorage.setItem("punteggio",y)
+            localStorage.setItem("corrette",z)
+            localStorage.setItem("elenco",x)
+            
+        
+        document.location.href="Untitled-2.html";}
+        function nome(){
+            var x=document.getElementById("nome").value;
+            localStorage.setItem("nome",x);
+            document.getElementById("utente").innerHTML="Ciao " +localStorage.getItem("nome");
+        }
+    </script>
+</head>
+<body>
+    <a>Inserisci nome utente</a><br>
+    <input type="text"id="nome"><input type="submit"onclick="nome()">
+    <div id="utente"></div>
+    <h1>Quante zampe ha un ragno???</h1>
+    <input type="radio" id="A" value="A" name="domanda"><label for="A">4</label><br>
+    <input type="radio" id="B"value="B" name="domanda"><label for="B">16</label><br>
+    <input type="radio" id="C"value="C" name="domanda"><label for="C">8</label><br>
+    <input type="radio" id="D"value="D" name="domanda"><label for="D">128</label><br>
+    <input type="button" id="invio" value="Invia"onclick="invio()">
+    
+</body>
+</html>

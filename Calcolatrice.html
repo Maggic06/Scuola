@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>body{background-color:darkgreen;
+    text-align:center;}</style>
+    <script>
+        function somma(){
+var x=document.getElementById("a").value
+var y=document.getElementById("b").value
+var z=x*1+y*1;
+document.getElementById("dest").innerHTML=z;
+        }
+        function moltiplicazione(){
+var x=document.getElementById("a").value
+var y=document.getElementById("b").value
+var z=x*y;
+document.getElementById("dest").innerHTML=z;
+        }
+        function sottrazione(){
+var x=document.getElementById("a").value
+var y=document.getElementById("b").value
+var z=x-y;
+document.getElementById("dest").innerHTML=z;
+        }
+        function divisione(){
+var x=document.getElementById("a").value
+var y=document.getElementById("b").value
+var z=x/y;
+document.getElementById("dest").innerHTML=z;
+        }
+    </script>
+</head>
+<body>
+    <h1>Calcolatrice 1.0</h1>
+    <input type="number" id="a">
+    <input type="number" id="b">
+    <input type="button" id="+" value="+" onclick="somma()">
+    <input type="button" id="-"value="-"onclick="sottrazione()">
+    <input type="button" id="*"value="*"onclick="moltiplicazione()">
+    <input type="button" id="/"value="/"onclick="divisione()">
+    <div id="dest"></div>
+</body>
+</html>

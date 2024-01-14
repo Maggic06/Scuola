@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Browser</title>
+</head>
+<style>
+    dest{padding-left: 450px;
+        text-align: right;}
+        body{background-image:url(stelle.gif);
+        background-attachment: fixed;
+            background-size: cover;
+        }
+        a{color:white;}
+        label{color:white;}
+        dest{color:white;}
+        h1{color:white;
+        text-align:center;}
+
+</style>
+<script>
+    
+  function stampa(){
+    var s="";
+    
+  s=s+document.getElementById("nome").value+" "
+  s=s+document.getElementById("cognome").value+" "
+  s=s+document.getElementById("eta").value+" "
+  if(document.getElementById("sessoM").checked == true){
+  s=s+"Maschio ";}
+  if(document.getElementById("sessoF").checked == true){
+  s=s+"Femmina ";}
+  if(document.getElementById("sessoA").checked == true){
+  s=s+"Altro ";}
+  s=s+document.getElementById("nato").value+" "
+  s=s+document.getElementById("prov").value+" "
+  if(document.getElementById("bas").selected==true){
+  s=s+"Basket"+" "}
+  if(document.getElementById("cal").selected==true){
+  s=s+"Calcio"+" "}
+  if(document.getElementById("pal").selected==true){
+  s=s+"Pallavolo"+" "}
+  if(document.getElementById("ten").selected==true){
+  s=s+"Tennis"+" "}
+  if(document.getElementById("nuo").selected==true){
+  s=s+"Nuoto"+" "}
+  if(document.getElementById("tps").checked == true){
+  s=s+"TPS ";}
+  if(document.getElementById("mate").checked == true){
+  s=s+"Matematica ";}
+  if(document.getElementById("ing").checked == true){
+  s=s+"Inglese ";}
+  if(document.getElementById("ita").checked == true){
+  s=s+"Italiano ";}
+  if(document.getElementById("geo").checked == true){
+  s=s+"Geometria ";}
+
+  document.getElementById("dest").innerHTML=s
+  }
+  </script>
+
+<body>
+  <h1>Anagrafica di Alessandro Barone</h1>
+    <a>Inserisci nome</a><input type="text" id="nome"><dest id="dest"></dest><br>
+    <a>Inserisci cognome</a><input type="text" id="cognome"><br>
+      <a>Inserisci età</a><input type="number" id="eta"><br>
+      <a>Specifica il tuo orientamento sessuale</a><br>
+    <input type="radio" id="sessoM" name="sesso"value="M"><label for="sessoM">M</label> 
+    <input type="radio" id="sessoF"name="sesso"value="F"><label for="sessoF">F</label> 
+    <input type="radio" id="sessoA"name="sesso"value="A"><label for="sessoA">A</label><br>
+    <a>Nato a</a><input type="text" id="nato"><br>
+      <a>Provincia</a><select id="prov">
+      <option value="Milano">Milano</option>
+      <option value="Bergamo">Bergamo</option>
+      <option value="Lecco">Lecco</option>
+      <option value="Como">Como</option>
+      <option value="Brescia">Brescia</option>
+      </select><br>
+      <a>Seleziona i tuoi sport preferiti(Se ne vuoi selezionare più di uno premere CTRL+click sullo sport desiderato)</a><br>
+      <select name="sport" size="5"id="sport"multiple>
+    <option id="bas">Basket</option>
+    <option id="cal">Calcio</option>
+    <option id="pal">Pallavolo</option>
+    <option id="ten">Tennis</option>
+    <option id="nuo">Nuoto</option>
+    </select><br>
+      <a>Spunta le tue materie insufficenti</a><br>
+      <input type="checkbox" name="materia" id="tps"value="tps">
+      <label for="tps">TPS</label><br>
+      <input type="checkbox" name="materia" id="mate"value="mate">
+      <label for="mate">MATE</label><br>
+      <input type="checkbox" name="materia" id="ing" value="ing">
+      <label for="ing">INGLESE</label><br>
+      <input type="checkbox" name="materia"id="ita"value="ita">
+      <label for="ita">ITALIANO</label><br>
+      <input type="checkbox" name="materia" id="geo" value="geo">
+      <label for="geo">GEOMETRIA</label><br>
+      <input type="button" value="Invia" onclick="stampa()"><br>
+        <dest id="dest"></dest>
+</body>
+
+</html>

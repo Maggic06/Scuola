@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>body{background-color:darkgreen;
+    text-align:center;}</style>
+    <script>
+   
+        var z=0;
+        
+        var cont1=0;
+        function azzeradisplay(){
+            
+            f=document.getElementById("n").value
+            
+          
+        }
+       
+       function somma(){
+        
+        cont1=1
+        
+       }
+
+       function sottrazione(){
+        
+        cont1=2
+       }
+       function molt(){
+        cont1=3;
+       }
+       function divisione(){
+        cont1=4;
+       }
+       function effettua(){
+        
+        
+        
+            if(cont1==1){
+            z=f*1+(document.getElementById("n").value)*1;}
+            if(cont1==2){
+                z=f-document.getElementById("n").value;}
+                if(cont1==3){
+                    z=(f*1)*(document.getElementById("n").value*1);}
+                if(cont1==4){ z=f/document.getElementById("n").value;}
+            document.getElementById("dest").innerHTML=z;
+
+        
+    }
+    function reset(){
+        f=0;
+        document.getElementById("n").value="";
+    }
+    </script>
+</head>
+<body>
+    <h1>Calcolatrice 2.0</h1>
+    <input type="number"id="n">
+
+    
+    <input type="button"id="+"value="+"onclick="somma(),azzeradisplay()">
+    <input type="button" id="-" value="-" onclick="sottrazione(),azzeradisplay()">
+    <input type="button" id="*"value="*"onclick="molt(),azzeradisplay()">
+    <input type="button" id="/"value="/"onclick="divisione(),azzeradisplay()">
+    <input type="button" id="="value="="onclick="effettua()">
+    <input type="button" id="C"value="C"onclick="reset()">
+    <div id="dest"></div>
+</body>
+</html>
