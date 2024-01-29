@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{background-image:url(stelle.gif);
+        background-attachment: fixed;
+            background-size: cover;
+        }
+        #form1{color:white;}
+    </style>
+    <script>
+        function a(){
+        const x=document.forms["form1"]; 
+        var tot="";
+        for(i=0;i<x.length;i++){
+            if(i==x.length-1){
+                tot+=x[i].value;
+            }
+            else{
+                tot+=x[i].value+", ";
+            }
+        }
+        localStorage.setItem("dati",tot); 
+        document.location.href="dati2.html";
+        }
+    </script>
+</head>
+<body>
+    <form id="form1">
+        Nome: <input type="text" id="a"><br>
+        Cognome: <input type="text" id="a"><br>
+        Professione: <input type="text" id="a"><br>
+    </form>
+    <input type="submit" onclick="a()">
+</body>
+</html>

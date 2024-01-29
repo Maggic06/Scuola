@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function ricevi(){
+            var x=localStorage.getItem("dati");
+            document.getElementById("dest").innerHTML+=x
+        }
+        setTimeout("ricevi()",1);
+    </script>
+    <style>
+    body{background-image:url(stelle.gif);
+        background-attachment: fixed;
+            background-size: cover;
+        }
+        #dest{color:white;}</style>
+</head>
+<body>
+    <dest id="dest">Valori form: </dest>
+</body>
+</html>
