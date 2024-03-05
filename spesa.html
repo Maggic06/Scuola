@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <title></title>
+    <script>
+        var i=1
+        function creatina(){
+            document.getElementById("a")[i].setAttributeNode(document.createAttribute("disabled",""))
+            document.getElementById("a")[i-1].setAttributeNode(document.createAttribute("disabled",""))
+            var x=document.createElement("br")
+            document.getElementById("a").appendChild(x)
+            i++
+            var y=document.createElement("input")
+            document.getElementById("a").appendChild(y)
+            i++
+            var x=document.createElement("input")
+            x.type="button"
+            x.value="+"
+            x.style="margin: 30px 0;"
+            var w=document.createAttribute("onclick")
+            w.value="creatina()"
+            x.setAttributeNode(w)
+            document.getElementById("a").appendChild(x)
+        }
+        function invio(){
+            var fo=document.forms["a"]
+            var vect=[]
+            var cont=0
+            for(var j=0;j<i;j++){
+                if(j%2==0){
+                    if(fo[j].value!=""){
+                        vect[cont]=fo[j].value
+                        cont++
+                    }
+                }
+            }
+            localStorage.setItem("ve",vect)
+            localStorage.setItem("ind",i+1)
+            localStorage.setItem("fo2",fo)
+            document.location.href="dest.html"
+        }
+    </script>
+    <style>
+        body{background-image:url(stelle.gif);
+        background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    
+        <center>
+        <form id="a">
+            <input type="text" name="in">
+            <input type="button" value="+" style="margin: 30px 0;" onclick="creatina()" name="in">
+        </form>
+        <input type="submit" style="margin: 30px 0;" onclick="invio()">
+        </div>
+    </center>
+</body>
+</html>
