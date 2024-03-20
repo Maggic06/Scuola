@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+    setInterval(cerchia,10)
+function cerchia(){
+    var canvas=document.getElementById("a");
+    var ctx=canvas.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(60,72.5,55,0,2*Math.PI);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(180,72.5,55,0,2*Math.PI);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(300,72.5,55,0,2*Math.PI);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(115,130,55,0,2*Math.PI);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(245,130,55,0,2*Math.PI);
+    ctx.stroke();
+}</script>
+</head>
+<body>
+    
+    <canvas id="a" width="800" height="500" style="border:10px"></canvas>
+    
+</body>
+</html>
