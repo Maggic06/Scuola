@@ -1,0 +1,26 @@
+[
+    {
+        "Nome": "Carlo",
+        "Cognome": "Bianchi",
+        "Eta": 44,
+        "Indirizzo": "Via stelvio 3",
+        "Citta": "Milano",
+        "Telefono": "3401902738"
+    },
+    {
+        "Nome": "Maria",
+        "Cognome": "DelPini",
+        "Eta": 24,
+        "Indirizzo": "Via ramazzotti 2",
+        "Citta": "Milano",
+        "Telefono": "0985642345"
+    },
+    {
+        "Nome": "Alessandro",
+        "Cognome": "Martinelli",
+        "Eta": 19,
+        "Indirizzo": "Corso Lambrate 4",
+        "Citta": "Genova",
+        "Telefono": "7647673890"
+    }
+]
