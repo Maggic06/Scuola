@@ -36,7 +36,7 @@
     </table>
     <script>
         var x=new XMLHttpRequest()
-        x.open("GET", "dati.json", true)
+        x.open("GET", "file.json", true)
         x.onreadystatechange = function () {
             if (x.status==200) {
                 var data=JSON.parse(x.responseText)
