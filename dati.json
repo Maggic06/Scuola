@@ -7,8 +7,8 @@
         "Citta": "Milano",
         "Telefono": {
             "Cellulare": "1234567890",
-            "Casa": "0987654321",
-            "Ufficio": "5551234567"
+            "Casa": "1234567890",
+            "Ufficio": "1234567890"
         }
     },
     {
@@ -18,9 +18,9 @@
         "Indirizzo": "Corso Lambrate 4",
         "Citta": "Genova",
         "Telefono": {
-            "Cellulare": "2223334444",
-            "Casa": "1112223333",
-            "Ufficio": "4445556666"
+            "Cellulare": "1234567890",
+            "Casa": "1234567890",
+            "Ufficio": "1234567890"
         }
     },
     {
@@ -30,9 +30,9 @@
         "Indirizzo": "Corso Europa 36",
         "Citta": "Palermo",
         "Telefono": {
-            "Cellulare": "7778889999",
-            "Casa": "6667778888",
-            "Ufficio": "9990001111"
+            "Cellulare": "1234567890",
+            "Casa": "1234567890",
+            "Ufficio": "1234567890"
         }
     }
 ]
