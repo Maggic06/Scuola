@@ -11,7 +11,8 @@
             "Ufficio": "5551234567"
             
         },
-        "Immagine":"img1.jpg"
+        "Immagine":"img1.jpg",
+         "LinkCV":"Landing1.html"
 
 
     },
@@ -26,7 +27,8 @@
             "Casa": "1112223333",
             "Ufficio": "4445556666"
         },
-        "Immagine":"img2.jpg"
+        "Immagine":"img2.jpg",
+        "LinkCV":"Landing2.html"
 
     },
     {
@@ -40,6 +42,7 @@
             "Casa": "6667778888",
             "Ufficio": "9990001111"
         },
-        "Immagine":"img3.jpg"
+        "Immagine":"img3.jpg",
+         "LinkCV":"Landing3.html"
     }
 ]
