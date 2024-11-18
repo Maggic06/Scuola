@@ -51,7 +51,7 @@
                 for (var i = 0; i < data.length; i++) {
                     var persona = data[i];
                     var img = document.createElement('img');
-            img.src = persona.Immagine;
+            //img.src = persona.Immagine;
           
             
                     riga += '<tr>' +
@@ -63,7 +63,7 @@
                         '<td>' + persona.Telefono.Cellulare + '</td>' +
                         '<td>' + persona.Telefono.Casa + '</td>' +
                         '<td>' + persona.Telefono.Ufficio + '</td>' +
-                        "<td> + <img src='" + persona.Immagine + "'> + </td>" +
+                        "<td> + <img src='"  persona.Immagine  "'> + </td>" +
                     '</tr>';
                 }
 
