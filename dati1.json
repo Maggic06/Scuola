@@ -26,7 +26,7 @@
             "Casa": "1112223333",
             "Ufficio": "4445556666"
         },
-        "Immagine":"https://www.mezzopieno.org/wp-content/uploads/2022/07/donna-imprenditrice-scaled.jpg"
+        "Immagine":"img2.jpg"
 
     },
     {
@@ -40,6 +40,6 @@
             "Casa": "6667778888",
             "Ufficio": "9990001111"
         },
-        "Immagine":"img1.jpg"
+        "Immagine":"img3.jpg"
     }
 ]
