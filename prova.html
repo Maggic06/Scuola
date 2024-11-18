@@ -1,0 +1,74 @@
+<html lang="it"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid;
+            padding: 8px;
+        }
+        th {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Es JSON Aggiornato</h1>
+    <table id="anagrafica">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Età</th>
+                <th>Indirizzo</th>
+                <th>Città</th>
+                <th>Cellulare</th>
+                <th>Telefono Casa</th>
+                <th>Telefono Ufficio</th>
+                <th>Immagine</th>
+            </tr>
+        </thead>
+        <tbody><tr><td>Carlo</td><td>Bianchi</td><td>44</td><td>Via Stelvio 3</td><td>Milano</td><td>1234567890</td><td>1234567890</td><td>1234567890</td></tr><tr><td>Maria</td><td>DelPini</td><td>24</td><td>Corso Lambrate 4</td><td>Genova</td><td>1234567890</td><td>1234567890</td><td>1234567890</td></tr><tr><td>Sabino</td><td>Martinelli</td><td>40</td><td>Corso Europa 36</td><td>Palermo</td><td>1234567890</td><td>1234567890</td><td>1234567890</td></tr></tbody>
+    </table>
+
+    <script>
+        var x = new XMLHttpRequest();
+        x.open("GET", "dati1.json", true);
+        x.onload = function() {
+            if (x.status === 200) {
+                var data = JSON.parse(x.responseText);
+                var tBody = document.getElementById("anagrafica").getElementsByTagName("tbody")[0];
+                var riga = '';
+                
+                for (var i = 0; i < data.length; i++) {
+                    var persona = data[i];
+                    var img = document.createElement('img');
+            img.src = persona.Immagine;
+            img.width = 200; 
+            img.height = 200; 
+            img.alt=Foto;
+                    riga += '<tr>' +
+                        '<td>' + persona.Nome + '</td>' +
+                        '<td>' + persona.Cognome + '</td>' +
+                        '<td>' + persona.Eta + '</td>' +
+                        '<td>' + persona.Indirizzo + '</td>' +
+                        '<td>' + persona.Citta + '</td>' +
+                        '<td>' + persona.Telefono.Cellulare + '</td>' +
+                        '<td>' + persona.Telefono.Casa + '</td>' +
+                        '<td>' + persona.Telefono.Ufficio + '</td>' +
+                        "<td> + <img src='" + persona.Immagine + "'> + </td>" +
+                    '</tr>';
+                }
+
+                tBody.innerHTML = riga;
+            }
+        }
+        x.send();
+    </script>
+
+
+</body></html>

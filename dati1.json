@@ -1,0 +1,45 @@
+[
+    {
+        "Nome": "Carlo",
+        "Cognome": "Bianchi",
+        "Eta": 44,
+        "Indirizzo": "Via Stelvio 3",
+        "Citta": "Milano",
+        "Telefono": {
+            "Cellulare": "1234567890",
+            "Casa": "0987654321",
+            "Ufficio": "5551234567"
+            
+        },
+        "Immagine":"img1.jpg"
+
+
+    },
+    {
+        "Nome": "Maria",
+        "Cognome": "DelPini",
+        "Eta": 24,
+        "Indirizzo": "Corso Lambrate 4",
+        "Citta": "Genova",
+        "Telefono": {
+            "Cellulare": "2223334444",
+            "Casa": "1112223333",
+            "Ufficio": "4445556666"
+        },
+        "Immagine":"https://www.mezzopieno.org/wp-content/uploads/2022/07/donna-imprenditrice-scaled.jpg"
+
+    },
+    {
+        "Nome": "Sabino",
+        "Cognome": "Martinelli",
+        "Eta": 40,
+        "Indirizzo": "Corso Europa 36",
+        "Citta": "Palermo",
+        "Telefono": {
+            "Cellulare": "7778889999",
+            "Casa": "6667778888",
+            "Ufficio": "9990001111"
+        },
+        "Immagine":"img1.jpg"
+    }
+]
