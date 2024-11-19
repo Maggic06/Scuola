@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body><a>Nome: </a><a id="a"></a><br>
+        <a>Cognome: </a><a id="b"></a><br>
+        <a>eta: </a><a id="c"></a><br>
+        <script>
+            let TraJson=localStorage.getItem('TraJson');
+            let dati= JSON.parse(TraJson);
+            let div=document.getElementById('a');
+            let div1=document.getElementById('b');
+            let div2=document.getElementById('c');
+            div.innerText+=dati.nome;
+            div1.innerText+=dati.cognome;
+            div2.innerText+=dati.eta;
+    
+        </script>
+    </body>
+</html>
