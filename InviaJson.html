@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function invia(){
+            let dati = {
+                nome: document.getElementById('nome').value,
+                cognome: document.getElementById('cognome').value,
+                eta: document.getElementById('eta').value
+            };
+            const TraJson = JSON.stringify(dati);
+            localStorage.setItem('TraJson',TraJson);
+            document.location.href="RiceviJson.html";
+        }
+        
+
+    </script>
+</head>
+<body>
+    <div>Inserisci nome</div>
+    <input type="text" id="nome" name="nome"><br>
+    <div>Inserisci cognome</div>
+    <input type="text" id="cognome" name="cognome"><br>
+    <div>Inserisci eta</div>
+    <input type="number" id="eta" name="eta"><br>
+    <button input type="button" onclick="invia()"> Invia </button><br>
+    
+</body>
+</html>
