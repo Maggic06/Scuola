@@ -13,7 +13,7 @@
         },
         "Immagine":"img1.jpg",
          "LinkCV":"Landing1.html",
-      "LinkPort":"LandingP.html",
+      "LinkPort":"LandingP.html"
 
 
     },
@@ -30,7 +30,7 @@
         },
         "Immagine":"img2.jpg",
         "LinkCV":"Landing2.html",
-      "LinkPort":"LandingP.html",
+      "LinkPort":"LandingP.html"
 
     },
     {
@@ -46,6 +46,6 @@
         },
         "Immagine":"img3.jpg",
          "LinkCV":"Landing3.html",
-      "LinkPort":"LandingP.html",
+      "LinkPort":"LandingP.html"
     }
 ]
