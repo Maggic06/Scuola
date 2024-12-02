@@ -55,7 +55,7 @@
         var x = new XMLHttpRequest();
         x.open("GET", "dati2.json", true);
         x.onload = function() {
-            if (x.status === 200) {
+            if (x.status == 200) {
                 try {
                     var data = JSON.parse(x.responseText); // Parsea la risposta JSON
                     var tBody = document.getElementById("anagrafica").getElementsByTagName("tbody")[0];
