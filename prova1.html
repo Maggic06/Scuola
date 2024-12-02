@@ -1,4 +1,5 @@
-<html lang="it"><head>
+<html lang="it">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>document</title>
@@ -37,42 +38,60 @@
                 <th>Portfolio</th>
             </tr>
         </thead>
-        <tbody><tr><td>Carlo</td><td>Bianchi</td><td>44</td><td>Via Stelvio 3</td><td>Milano</td><td>1234567890</td><td>1234567890</td><td>1234567890</td></tr><tr><td>Maria</td><td>DelPini</td><td>24</td><td>Corso Lambrate 4</td><td>Genova</td><td>1234567890</td><td>1234567890</td><td>1234567890</td></tr><tr><td>Sabino</td><td>Martinelli</td><td>40</td><td>Corso Europa 36</td><td>Palermo</td><td>1234567890</td><td>1234567890</td><td>1234567890</td></tr></tbody>
+        <tbody></tbody>
     </table>
 
     <script>
-        var x = new XMLHttpRequest();
-x.open("GET", "dati2.json", true);
-x.onload = function() {
-    if (x.status === 200) {
-        var data = JSON.parse(x.responseText);
-        var tBody = document.getElementById("anagrafica").getElementsByTagName("tbody")[0];
-        var riga = '';
-        
-        for (var i = 0; i < data.length; i++) {
-            var persona = data[i];
-            
-            riga += '<tr>' +
-                '<td>' + persona.Nome + '</td>' +
-                '<td>' + persona.Cognome + '</td>' +
-                '<td>' + persona.Eta + '</td>' +
-                '<td>' + persona.Indirizzo + '</td>' +
-                '<td>' + persona.Citta + '</td>' +
-                '<td>' + persona.Telefono.Cellulare + '</td>' +
-                '<td>' + persona.Telefono.Casa + '</td>' +
-                '<td>' + persona.Telefono.Ufficio + '</td>' +
-                "<td><a href='" + persona.LinkCV + "'>" + 
-                    "<img src='" + persona.Immagine + "' alt='Immagine'></a></td>" +
-                "<td><a href='" + persona.LinkPort + "' >Visualizza Portfolio</a></td>" +
-                '</tr>';
+        // Funzione per impostare l'ID del portfolio nel localStorage
+        function setPortfolioId(portfolioLink) {
+            var id = "portfolio_" + new Date().getTime(); // Genera ID univoco
+            localStorage.setItem("portfolioId", id);
+            localStorage.setItem("portfolioLink", portfolioLink);
+            console.log("ID del portfolio salvato:", id);
+            console.log("Link del portfolio salvato:", portfolioLink);
         }
 
-        tBody.innerHTML = riga;
-       
+        // Caricamento del file JSON
+        var x = new XMLHttpRequest();
+        x.open("GET", "dati2.json", true);
+        x.onload = function() {
+            if (x.status === 200) {
+                try {
+                    var data = JSON.parse(x.responseText); // Parsea la risposta JSON
+                    var tBody = document.getElementById("anagrafica").getElementsByTagName("tbody")[0];
+                    var riga = '';
+                    
+                    for (var i = 0; i < data.length; i++) {
+                        var persona = data[i];
+
+                        riga += '<tr>' +
+                            '<td>' + persona.Nome + '</td>' +
+                            '<td>' + persona.Cognome + '</td>' +
+                            '<td>' + persona.Eta + '</td>' +
+                            '<td>' + persona.Indirizzo + '</td>' +
+                            '<td>' + persona.Citta + '</td>' +
+                            '<td>' + persona.Telefono.Cellulare + '</td>' +
+                            '<td>' + persona.Telefono.Casa + '</td>' +
+                            '<td>' + persona.Telefono.Ufficio + '</td>' +
+                            "<td><a href='" + persona.LinkCV + "'>" + 
+                                "<img src='" + persona.Immagine + "' alt='Immagine'></a></td>" +
+                            "<td><a href='" + persona.LinkPort + "' onclick='setPortfolioId(\"" + persona.LinkPort + "\")'>Visualizza Portfolio</a></td>" +
+                            '</tr>';
+                    }
+
+                    tBody.innerHTML = riga; // Inserisce le righe nella tabella
+
+                } catch (e) {
+                    console.error("Errore nel parsing del JSON:", e);
+                }
+            } else {
+                console.error("Errore nel caricamento del file JSON. Status: " + x.status);
             }
-        }
+        };
+        x.onerror = function() {
+            console.error("Errore di rete durante il caricamento del file JSON.");
+        };
         x.send();
     </script>
-
-
-</body></html>
+</body>
+</html>
