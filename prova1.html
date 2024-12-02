@@ -42,33 +42,37 @@
 
     <script>
         var x = new XMLHttpRequest();
-x.open("GET", "dati2.json", true);
-x.onload = function() {
-    if (x.status === 200) {
-        var data = JSON.parse(x.responseText);
-        var tBody = document.getElementById("anagrafica").getElementsByTagName("tbody")[0];
-        var riga = '';
-        
-        for (var i = 0; i < data.length; i++) {
-            var persona = data[i];
+        x.open("GET", "dati2.json", true);
+        x.onload = function() {
+            if (x.status === 200) {
+                var data = JSON.parse(x.responseText);
+                var tBody = document.getElementById("anagrafica").getElementsByTagName("tbody")[0];
+                var riga = '';
+                
+                for (var i = 0; i < data.length; i++) {
+                    var persona = data[i];
+                    var img = document.createElement('img');
+            img.src = persona.Immagine;
+          
             
-            riga += '<tr>' +
-                '<td>' + persona.Nome + '</td>' +
-                '<td>' + persona.Cognome + '</td>' +
-                '<td>' + persona.Eta + '</td>' +
-                '<td>' + persona.Indirizzo + '</td>' +
-                '<td>' + persona.Citta + '</td>' +
-                '<td>' + persona.Telefono.Cellulare + '</td>' +
-                '<td>' + persona.Telefono.Casa + '</td>' +
-                '<td>' + persona.Telefono.Ufficio + '</td>' +
-                "<td><a href='" + persona.LinkCV + "'>" + 
-                    "<img src='" + persona.Immagine + "' alt='Immagine'></a></td>" +
-                "<td><a href='" + persona.LinkPort + "' >Visualizza Portfolio</a></td>" +
-                '</tr>';
-        }
+                    riga += '<tr>' +
+                        '<td>' + persona.Nome + '</td>' +
+                        '<td>' + persona.Cognome + '</td>' +
+                        '<td>' + persona.Eta + '</td>' +
+                        '<td>' + persona.Indirizzo + '</td>' +
+                        '<td>' + persona.Citta + '</td>' +
+                        '<td>' + persona.Telefono.Cellulare + '</td>' +
+                        '<td>' + persona.Telefono.Casa + '</td>' +
+                        '<td>' + persona.Telefono.Ufficio + '</td>' +
+                         "<td><a href='" + persona.LinkCV + "'>" + 
+                        "<img src='" + persona.Immagine + "' alt='Immagine'></a></td>" +
+                        "<td><a href='" + persona.LinkPort + "' >Visualizza Portfolio</a></td>"+
+                        "</tr>";
+                        
+                    '</tr>';
+                }
 
-        tBody.innerHTML = riga;
-       
+                tBody.innerHTML = riga;
             }
         }
         x.send();
