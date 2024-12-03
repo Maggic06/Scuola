@@ -1,1 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <script>
+   var x = new XMLHttpRequest();
+    x.open("GET", "datiport.xml", true);  
+    x.onload = function() {
+        if (x.status === 200) {
+            var data = x.responseXML;
+            var persone = data.getElementsByTagName('persona');
 
+            
+            for (var i = 2; i < 3; i++) {
+               
+                const link1 = persone[i].getElementsByTagName('link1')[0].textContent;
+                const link2 = persone[i].getElementsByTagName('link2')[0].textContent;
+                const link3 = persone[i].getElementsByTagName('link3')[0].textContent;
+
+               
+                const containerDiv = document.createElement('div');
+                containerDiv.style.textAlign = "center";
+
+                
+                const link1Element = document.createElement('a');
+                link1Element.href = link1;
+                link1Element.target = "_blank";
+                link1Element.textContent = "Link1: " + link1;
+                containerDiv.appendChild(link1Element);
+                containerDiv.appendChild(document.createElement('br'));  
+
+               
+                const link2Element = document.createElement('a');
+                link2Element.href = link2;
+                link2Element.target = "_blank";
+                link2Element.textContent = "Link2: " + link2;
+                containerDiv.appendChild(link2Element);
+                containerDiv.appendChild(document.createElement('br'));
+
+                
+                const link3Element = document.createElement('a');
+                link3Element.href = link3;
+                link3Element.target = "_blank";
+                link3Element.textContent = "Link3: " + link3;
+                containerDiv.appendChild(link3Element);
+                containerDiv.appendChild(document.createElement('br'));
+
+               
+                document.body.appendChild(containerDiv);
+            }
+        }
+    };
+    x.send();
+    
+  </script>
+</head>
+<body>
+  <div style="text-align: center;">
+
+    </div>
+</body>
+</html>
