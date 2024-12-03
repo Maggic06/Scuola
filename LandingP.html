@@ -9,14 +9,14 @@
         x.open("GET", "datiport.xml", true);
         x.onload = function() {
             if (x.status === 200) {
-                var data = JSON.parse(x.responseText);
+                var data = x.responseXML;
                
             
                 for (var i = 0; i <1; i++) {
                     var persona = data[i];
-                  document.getElementById("container1").innerHTML+=persona.Link1;
-                  document.getElementById("container2").innerHTML+=persona.Link2;
-                  document.getElementById("container3").innerHTML+=persona.Link3;
+                  document.getElementById("container1").innerHTML+=data.getElementsByTagName('Link1')[i];
+                  document.getElementById("container2").innerHTML+=data.getElementsByTagName('Link2')[i];
+                  document.getElementById("container3").innerHTML+=data.getElementsByTagName('Link3')[i];
                 }
         }
         }
