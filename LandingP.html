@@ -15,13 +15,18 @@
                 for (var i = 0; i <1; i++) {
                     
                   const link1=data.getElementsByTagName('Link1')[i];
-                  const link2.getElementById("container2").innerHTML+=data.getElementsByTagName('Link2')[i];
-                  const link3.getElementById("container3").innerHTML+=data.getElementsByTagName('Link3')[i];
+                  const link2=data.getElementsByTagName('Link2')[i];
+                  const link3=data.getElementsByTagName('Link3')[i];
+                     const linkContainer = document.getElementById('container1');
+          const link = document.createElement('a');
+          link.href = link1;
+          link.target = "_blank";
+          linkContainer.appendChild(link);
                 }
         }
         }
         x.send();
-                  
+      }loadXML();
   </script>
 </head>
 <body>
