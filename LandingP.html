@@ -6,32 +6,32 @@
     <title>Document</title>
   <script>
    var x = new XMLHttpRequest();
-    x.open("GET", "datiport.xml", true);  // Assicurati che "datiport.xml" sia il percorso corretto
+    x.open("GET", "datiport.xml", true);  
     x.onload = function() {
         if (x.status === 200) {
             var data = x.responseXML;
             var persone = data.getElementsByTagName('persona');
 
-            // Itera su tutte le persone
+            
             for (var i = 0; i < 1; i++) {
-                // Estrai i link per ogni persona
+               
                 const link1 = persone[i].getElementsByTagName('link1')[0].textContent;
                 const link2 = persone[i].getElementsByTagName('link2')[0].textContent;
                 const link3 = persone[i].getElementsByTagName('link3')[0].textContent;
 
-                // Crea un nuovo contenitore per ogni persona
+               
                 const containerDiv = document.createElement('div');
-                containerDiv.style.textAlign = "center"; // Centra il contenitore
+                containerDiv.style.textAlign = "center";
 
-                // Crea e aggiungi il link1
+                
                 const link1Element = document.createElement('a');
                 link1Element.href = link1;
                 link1Element.target = "_blank";
                 link1Element.textContent = "Link1: " + link1;
                 containerDiv.appendChild(link1Element);
-                containerDiv.appendChild(document.createElement('br'));  // Aggiungi una nuova riga
+                containerDiv.appendChild(document.createElement('br'));  
 
-               // Crea e aggiungi il link2
+               
                 const link2Element = document.createElement('a');
                 link2Element.href = link2;
                 link2Element.target = "_blank";
@@ -39,7 +39,7 @@
                 containerDiv.appendChild(link2Element);
                 containerDiv.appendChild(document.createElement('br'));
 
-                // Crea e aggiungi il link3
+                
                 const link3Element = document.createElement('a');
                 link3Element.href = link3;
                 link3Element.target = "_blank";
@@ -47,7 +47,7 @@
                 containerDiv.appendChild(link3Element);
                 containerDiv.appendChild(document.createElement('br'));
 
-                // Aggiungi il contenitore creato al body
+               
                 document.body.appendChild(containerDiv);
             }
         }
