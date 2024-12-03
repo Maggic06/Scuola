@@ -5,57 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
   <script>
-    var x = new XMLHttpRequest();
-        x.open("GET", "datiport.xml", true);
-        x.onload = function() {
-            if (x.status === 200) {
-                var data = x.responseXML;
-                var persone = data.getElementsByTagName('persona');
-            
-               for (var i = 0; i < persone.length; i++) {
-                    
-                  const link1=persone[i].getElementsByTagName('Link1')[0].textContent;
-                  const link2=persone[i].getElementsByTagName('Link2')[0].textContent;
-                  const link3=persone[i].getElementsByTagName('Link3')[0].textContent;
-                     const linkContainer1 = document.getElementById('container1');
-                const linkContainer2 = document.getElementById('container2');
-                const linkContainer3 = document.getElementById('container3');
+   var x = new XMLHttpRequest();
+    x.open("GET", "datiport.xml", true);  // Assicurati che "datiport.xml" sia il percorso corretto
+    x.onload = function() {
+        if (x.status === 200) {
+            var data = x.responseXML;
+            var persone = data.getElementsByTagName('persona');
 
-              
+            // Itera su tutte le persone
+            for (var i = 0; i < persone.length; i++) {
+                // Estrai i link per ogni persona
+                const link1 = persone[i].getElementsByTagName('link1')[0].textContent;
+                const link2 = persone[i].getElementsByTagName('link2')[0].textContent;
+                const link3 = persone[i].getElementsByTagName('link3')[0].textContent;
+
+                // Crea un nuovo contenitore per ogni persona
+                const containerDiv = document.createElement('div');
+                containerDiv.style.textAlign = "center"; // Centra il contenitore
+
+                // Crea e aggiungi il link1
                 const link1Element = document.createElement('a');
                 link1Element.href = link1;
                 link1Element.target = "_blank";
                 link1Element.textContent = "Link1: " + link1;
-                linkContainer1.appendChild(link1Element);
-                linkContainer1.appendChild(document.createElement('br'));
+                containerDiv.appendChild(link1Element);
+                containerDiv.appendChild(document.createElement('br'));  // Aggiungi una nuova riga
 
-              
+                // Crea e aggiungi il link2
                 const link2Element = document.createElement('a');
                 link2Element.href = link2;
                 link2Element.target = "_blank";
                 link2Element.textContent = "Link2: " + link2;
-                linkContainer2.appendChild(link2Element);
-                linkContainer2.appendChild(document.createElement('br'));
+                containerDiv.appendChild(link2Element);
+                containerDiv.appendChild(document.createElement('br'));
 
-                
+                // Crea e aggiungi il link3
                 const link3Element = document.createElement('a');
                 link3Element.href = link3;
                 link3Element.target = "_blank";
                 link3Element.textContent = "Link3: " + link3;
-                linkContainer3.appendChild(link3Element);
-                linkContainer3.appendChild(document.createElement('br'));
-               }  
+                containerDiv.appendChild(link3Element);
+                containerDiv.appendChild(document.createElement('br'));
+
+                // Aggiungi il contenitore creato al body
+                document.body.appendChild(containerDiv);
+            }
         }
-        }
-        x.send();
+    };
+    x.send();
     
   </script>
 </head>
 <body>
   <div style="text-align: center;">
-    <a id="container1">Link1: </a><br>
-          <a id="container2">Link2: </a><br>
-          <a id="container3">Link3: </a><br>
+
     </div>
 </body>
 </html>
