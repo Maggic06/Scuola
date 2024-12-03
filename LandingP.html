@@ -1,1 +1,35 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <script>//datiport.xml
+    var x = new XMLHttpRequest();
+        x.open("GET", "datiport.xml", true);
+        x.onload = function() {
+            if (x.status === 200) {
+                var data = JSON.parse(x.responseText);
+               
+            
+                for (var i = 0; i <1; i++) {
+                    var persona = data[i];
+                  document.getElementById("container1").innerHTML+=persona.Link1;
+                  document.getElementById("container2").innerHTML+=persona.Link2;
+                  document.getElementById("container3").innerHTML+=persona.Link3;
+                }
+        }
+        }
+        x.send();
+                  
+  </script>
+</head>
+<body>
+  <div style="text-align: center;">
+    <a id="container1">Link1: </a><br>
+          <a id="container2">Link2: </a><br>
+          <a id="container3">Link3: </a><br>
+    </div>
+</body>
+</html>
+//datiport.xml
