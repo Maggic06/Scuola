@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+     <script>
+        var x = new XMLHttpRequest();
+        x.open("GET", "dati2.json", true);
+        x.onload = function() {
+            if (x.status === 200) {
+                var data = JSON.parse(x.responseText);
+               
+            
+                for (var i = 0; i <1; i++) {
+                    var persona = data[i];
+                 
+         
+          
+            
+                  document.getElementById("container")+=persona.Nome+persona.Cognome+persona.Eta+persona.Indirizzo+persona.Citta+persona.Telefono.Casa+persona.Telefono.Cellulare+persona.Telefono.Ufficio;
+                        
+                }
+
+        
+            }
+        }
+        x.send();
+      
+    </script>
     <style>
         h1{text-align:center;}
         a{text-align:center;}
@@ -10,8 +34,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>CV di Carlo Bianchi</h1>
-    <a>Ho 44 anni e vivo in Via Stelvio 3</a>
+    <a id="container"></a>
     
 </body>
 </html>
