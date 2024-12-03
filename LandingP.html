@@ -13,7 +13,7 @@
             var persone = data.getElementsByTagName('persona');
 
             // Itera su tutte le persone
-            for (var i = 0; i < persone.length; i++) {
+            for (var i = 0; i < 1; i++) {
                 // Estrai i link per ogni persona
                 const link1 = persone[i].getElementsByTagName('link1')[0].textContent;
                 const link2 = persone[i].getElementsByTagName('link2')[0].textContent;
@@ -31,7 +31,7 @@
                 containerDiv.appendChild(link1Element);
                 containerDiv.appendChild(document.createElement('br'));  // Aggiungi una nuova riga
 
-              /*  // Crea e aggiungi il link2
+               // Crea e aggiungi il link2
                 const link2Element = document.createElement('a');
                 link2Element.href = link2;
                 link2Element.target = "_blank";
@@ -45,7 +45,7 @@
                 link3Element.target = "_blank";
                 link3Element.textContent = "Link3: " + link3;
                 containerDiv.appendChild(link3Element);
-                containerDiv.appendChild(document.createElement('br'));*/
+                containerDiv.appendChild(document.createElement('br'));
 
                 // Aggiungi il contenitore creato al body
                 document.body.appendChild(containerDiv);
