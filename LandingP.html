@@ -10,13 +10,13 @@
         x.onload = function() {
             if (x.status === 200) {
                 var data = x.responseXML;
-               
+                var persone = data.getElementsByTagName('persona');
             
-               
+               for (var i = 0; i < persone.length; i++) {
                     
-                  const link1=data.getElementsByTagName('Link1')[i].textContent;
-                  const link2=data.getElementsByTagName('Link2')[i].textContent;
-                  const link3=data.getElementsByTagName('Link3')[i].textContent;
+                  const link1=persone[i].getElementsByTagName('Link1')[i].textContent;
+                  const link2=persone[i].getElementsByTagName('Link2')[i].textContent;
+                  const link3=persone[i].getElementsByTagName('Link3')[i].textContent;
                      const linkContainer1 = document.getElementById('container1');
                 const linkContainer2 = document.getElementById('container2');
                 const linkContainer3 = document.getElementById('container3');
@@ -44,7 +44,7 @@
                 link3Element.textContent = "Link3: " + link3;
                 linkContainer3.appendChild(link3Element);
                 linkContainer3.appendChild(document.createElement('br'));
-                
+               }  
         }
         }
         x.send();
