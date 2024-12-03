@@ -12,17 +12,39 @@
                 var data = x.responseXML;
                
             
-                for (var i = 0; i <1; i++) {
+               
                     
-                  const link1=data.getElementsByTagName('Link1')[i];
-                  const link2=data.getElementsByTagName('Link2')[i];
-                  const link3=data.getElementsByTagName('Link3')[i];
-                     const linkContainer = document.getElementById('container1');
-          const link = document.createElement('a');
-          link.href = link1;
-          link.target = "_blank";
-          linkContainer.appendChild(link);
-                }
+                  const link1=data.getElementsByTagName('Link1')[i].textContent;
+                  const link2=data.getElementsByTagName('Link2')[i].textContent;
+                  const link3=data.getElementsByTagName('Link3')[i].textContent;
+                     const linkContainer1 = document.getElementById('container1');
+                const linkContainer2 = document.getElementById('container2');
+                const linkContainer3 = document.getElementById('container3');
+
+              
+                const link1Element = document.createElement('a');
+                link1Element.href = link1;
+                link1Element.target = "_blank";
+                link1Element.textContent = "Link1: " + link1;
+                linkContainer1.appendChild(link1Element);
+                linkContainer1.appendChild(document.createElement('br'));
+
+              
+                const link2Element = document.createElement('a');
+                link2Element.href = link2;
+                link2Element.target = "_blank";
+                link2Element.textContent = "Link2: " + link2;
+                linkContainer2.appendChild(link2Element);
+                linkContainer2.appendChild(document.createElement('br'));
+
+                
+                const link3Element = document.createElement('a');
+                link3Element.href = link3;
+                link3Element.target = "_blank";
+                link3Element.textContent = "Link3: " + link3;
+                linkContainer3.appendChild(link3Element);
+                linkContainer3.appendChild(document.createElement('br'));
+                
         }
         }
         x.send();
