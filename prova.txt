@@ -1,0 +1,83 @@
+<?php
+// Controlla se il servizio SOAP è disponibile
+if (!class_exists('SoapClient')) {
+    die('SOAP non è supportato su questo server.');
+}
+
+// URL del servizio SOAP (ad esempio, un servizio di cambio valuta pubblico)
+$soapUrl = "$soapUrl = "https://xecdapi.xe.com/v1/soap.wsdl";  // URL WSDL di XE
+";
+
+// Funzione per ottenere il tasso di cambio
+function getExchangeRate($fromCurrency, $toCurrency) {
+    try {
+        $client = new SoapClient($soapUrl, array('trace' => 1));
+        
+        // Parametri per la richiesta SOAP
+        $params = array(
+            'fromCurrency' => $fromCurrency,
+            'toCurrency' => $toCurrency
+        );
+        
+        // Chiamata al metodo del servizio SOAP
+        $response = $client->__soapCall('getExchangeRate', array($params));
+        
+        // Restituisci il risultato
+        return $response;
+    } catch (SoapFault $fault) {
+        return "Errore SOAP: " . $fault->getMessage();
+    }
+}
+
+// Se il form è stato inviato, ottenere il tasso di cambio
+if (isset($_GET['currency'])) {
+    $currency = $_GET['currency'];
+    // Chiamata alla funzione per ottenere il tasso di cambio
+    $exchangeRate = getExchangeRate('USD', $currency);  // Supponiamo che USD sia la valuta di origine
+    
+    // Passa i dati a JavaScript
+    echo "<script>var exchangeRate = " . json_encode($exchangeRate) . ";</script>";
+}
+?>
+//parte 2(client)
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertitore di valuta</title>
+    <script>
+        // Funzione per aggiornare il tasso di cambio
+        function updateExchangeRate() {
+            // Ottieni la valuta selezionata
+            var currency = document.getElementById('currency').value;
+
+            // Fai una richiesta al server PHP passando il tipo di valuta
+            fetch(`soap_service.php?currency=${currency}`)
+                .then(response => response.text())
+                .then(data => {
+                    // Mostra il tasso di cambio ricevuto dalla risposta PHP
+                    document.getElementById('exchangeRate').innerText = 'Tasso di cambio: ' + data;
+                })
+                .catch(error => console.error('Errore:', error));
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Convertitore di valuta</h1>
+    <form>
+        <label for="currency">Scegli la valuta:</label>
+        <select id="currency" name="currency" onchange="updateExchangeRate()">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="JPY">JPY</option>
+            <option value="CAD">CAD</option>
+        </select>
+    </form>
+
+    <h2 id="exchangeRate">Tasso di cambio: </h2>
+
+</body>
+</html>
