@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Elenca post Wordpress</h1>
+    <ul id="lista"></ul>
+
+    <script>
+       
+        const apiUrl = 'https://www.sonymusic.com/wp-json/wp/v2/posts';
+
+        
+        async function trova() {
+            
+                const risposta = await fetch(apiUrl);
+                const post = await risposta.json();
+
+                const Lista = document.getElementById('lista');
+
+                
+                post.forEach(post => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `<a href="${post.link}">${post.title.rendered}</a>`;
+                    Lista.appendChild(listItem);
+                });
+            
+        }
+
+        
+        trova();
+    </script>
+</body>
+</html>
