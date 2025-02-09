@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        #mappa {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h2>La tua posizione sulla mappa</h2>
+    <div id="mappa"></div>
+
+    <script>
+        // Verifica se il browser supporta la geolocalizzazione
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    let lat = position.coords.latitude;
+                    let lon = position.coords.longitude;
+
+                    // Inizializza la mappa centrata sulla posizione dell'utente
+                    let mappa = L.map('mappa').setView([lat, lon], 13);
+
+                 
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    }).addTo(mappa);
+
+                  
+                    L.marker([lat, lon]).addTo(mappa)
+                        .bindPopup("Sei qui!")
+                        .openPopup();
+                },
+                
+            );
+        } 
+        
+    </script>
+</body>
+</html>
