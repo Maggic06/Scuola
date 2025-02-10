@@ -16,12 +16,34 @@
             background-size: cover;
         }
         h1{color:white;}
+        .bot {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.bot:hover {background-color: #3e8e41}
+
+.bot:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
     </style>
 </head>
     <center>
 <body>
     <h1>Geolocalizzazione</h1>
-    <input type="button" value="scopri la tua posizione!" onclick="geol()">
+    <input type="button" value="Scopri la tua posizione!" onclick="geol()" class="bot">
     <div id="mappa"></div>
     </center>
     <script>
