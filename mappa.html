@@ -19,10 +19,11 @@
     </style>
 </head>
 <body>
-    <h2>La tua posizione sulla mappa</h2>
+    <h1>Geolocalizzazione</h1>
     <div id="mappa"></div>
-
+    <input type="button" value="scopri la tua posizione!" onclick="geol()">
     <script>
+        function geol(){
         // Verifica se il browser supporta la geolocalizzazione
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition(
@@ -46,7 +47,7 @@
                 
             );
         } 
-        
+        }
     </script>
 </body>
 </html>
